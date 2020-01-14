@@ -8,7 +8,40 @@ const SearchParams = () => {
   const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
   const [breed, BreedDropdown, setBreed] = useDropdown("Breed", "", breeds);
   const [pets, setPets] = useState([]);
-
+/*
+        <label htmlFor="animal">
+          Animal
+          <select
+            id="animal"
+            value={animal}
+            onChange={event => setAnimal(event.target.value)}
+            onBlur={event => setAnimal(event.target.value)}
+          >
+            <option>All</option>
+            {ANIMALS.map(animal => (
+              <option key={animal} value={animal}>
+                {animal}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label htmlFor="breed">
+          Breed
+          <select
+            id="breed"
+            value={breed}
+            onChange={e => setBreed(e.target.value)}
+            onBlur={e => setBreeds(e.target.value)}
+            disabled={breeds.length === 0}
+          >
+            <option>All</option>
+            {breeds.map(breedString => (
+              <option key={breedString} value={breedString}>
+                {breedString}
+              </option>
+            ))}
+          </select>
+        </label>*/
   async function requestPets() {
     const { animals } = await pet.animals({
       location,
