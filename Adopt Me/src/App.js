@@ -1,8 +1,10 @@
 import React from "react";
 import { render } from "react-dom";
+import { Router, Link } from "@reach/router";
+//import Pet from "./Pet";
 import SearchParams from "./SearchParams";
+import Details from "./Details";
 
-// your code is going to go here,for now
 const App = () => {
   // return React.createElement("div", { id: "something-important" }, [
   //   React.createElement("h1", {}, "Adopt Me!"),
@@ -24,9 +26,17 @@ const App = () => {
   // ]);
   return (
     <div>
-      <h1 id="something-important">Adopt Me!</h1>
-      <SearchParams />
+      <header>
+        <Link to="/">
+          <h1>Adopt Me!</h1>
+        </Link>
+      </header>
+      <Router>
+        <SearchParams path="/" />
+        <Details path="/details/:id" />
+      </Router>
     </div>
   );
 };
+
 render(<App />, document.getElementById("root"));
