@@ -2,13 +2,20 @@
   "name": "adopt-me",
   "version": "1.0.0",
   "description": "",
-  "main": "App.js",
+  "main": "src/App.js",
   "scripts": {
+    "build": "parcel build --public-url ./dist/src/index.html",
+    "clear-build-cache": "rm -rf .cache/dist/",
     "dev": "parcel src/index.html",
     "format": "prettier \"src/**/*.{js,html}\" --write",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "dev:mock": "cross-env PET_MOCK=mock npm run dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm -s run build && babel-node server/index.js",
+    "test": "jest",
+    "test:update": "jest -u",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "typecheck": "tsc --noEmit"
   },
   "author": "Jatin",
   "license": "ISC",
@@ -17,6 +24,10 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
+    "@testing-library/react": "^9.4.0",
+    "@types/reach__router": "^1.2.6",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
     "babel-eslint": "^10.0.3",
     "cross-env": "^6.0.3",
     "eslint": "^6.8.0",
@@ -24,15 +35,28 @@
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0",
+    "jest": "^25.1.0",
     "parcel-bundler": "^1.12.4",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "tslint": "^6.0.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.2.0",
+    "typescript": "^3.7.5"
   },
   "dependencies": {
+    "@babel/node": "^7.8.4",
+    "@emotion/babel-preset-css-prop": "^10.0.27",
+    "@emotion/core": "^10.0.27",
     "@frontendmasters/pet": "^1.0.3",
     "@reach/router": "^1.2.1",
+    "babel-cli": "^6.26.0",
     "eslint-plugin-react-hooks": "^2.3.0",
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.1.3",
+    "redux": "^4.0.5"
   },
   "browserslist": [
     "last 2 Chrome versions"
